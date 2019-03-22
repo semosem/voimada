@@ -1,0 +1,9 @@
+mat-form-field {
+  position: absolute;
+  right: 1rem;
+  width: 20rem;
+  top: 5rem;
+}
+mat-icon {
+  /* position: absolute; */
+}
