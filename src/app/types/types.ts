@@ -1,5 +1,9 @@
 export interface Jobs {
-  id?: number;
-  title?: string;
-  SearchResult?: [];
+  MatchedObjectId: string;
+  OrganizationName: string;
+  PositionEndDate: string;
+  PositionLocationDisplay: string;
+  PositionStartDate: string;
+  PositionTitle: string;
+  PositionURI: string;
 }
