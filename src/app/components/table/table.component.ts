@@ -1,5 +1,8 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, ViewChild } from "@angular/core";
 import { Jobs } from "../../types/types";
+import { MatPaginator, MatTableDataSource } from "@angular/material";
+import { JobService } from "../../services/jobs.service";
+
 const ELEMENT_DATA: any = [
   { position: 1, name: "Hydrogen", weight: 1.0079, symbol: "H" },
   { position: 2, name: "Helium", weight: 4.0026, symbol: "He" },
@@ -17,16 +20,38 @@ const ELEMENT_DATA: any = [
  * @title Basic use of `<table mat-table>`
  */
 @Component({
-  selector: "table-basic-example",
+  selector: "app-table",
   styleUrls: ["table.component.css"],
   templateUrl: "table.component.html"
 })
 export class TableComponent {
-  @Input() jobs: Jobs;
+  public jobs: Jobs[];
+  private dataSource: any;
+  private displayedColumns: string[] = [
+    "title",
+    "name",
+    "startDate",
+    "endDate",
+    "location"
+  ];
 
-  displayedColumns: string[] = ["position", "name", "weight", "symbol"];
-  dataSource = this.jobs;
-  OnInit() {
-    console.log(this.jobs);
+  constructor(private jobService: JobService) {}
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  ngOnInit() {
+    this.jobService.getJobs().subscribe(jobsInfo => {
+      const jobs = jobsInfo.SearchResult.SearchResultItems.map(job => ({
+        MatchedObjectId: job.MatchedObjectId,
+        OrganizationName: job.MatchedObjectDescriptor.OrganizationName,
+        PositionTitle: job.MatchedObjectDescriptor.PositionTitle,
+        PositionURI: job.MatchedObjectDescriptor.PositionURI,
+        PositionStartDate: job.MatchedObjectDescriptor.PositionStartDate,
+        PositionEndDate: job.MatchedObjectDescriptor.PositionEndDate,
+        PositionLocationDisplay:
+          job.MatchedObjectDescriptor.PositionLocationDisplay
+      }));
+      this.dataSource = new MatTableDataSource<Jobs>(jobs);
+      this.dataSource.paginator = this.paginator;
+    });
   }
 }
