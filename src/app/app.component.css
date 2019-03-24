@@ -1,1 +1,27 @@
-@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+div {
+  text-align: center;
+  margin: 0;
+  height: 40vh;
+  background: rgba(35, 72, 83);
+}
+mat-toolbar {
+  bottom: 0;
+  position: absolute;
+  /* height: 5rem; */
+}
+h1 {
+  display: inline-block;
+  font-size: 3rem;
+}
+h1:first-child {
+  color: darkorange;
+}
+h1:nth-child(2) {
+  color: lightyellow;
+}
+h1:nth-child(3) {
+  color: white;
+}
+img {
+  /* position: absolute; */
+}

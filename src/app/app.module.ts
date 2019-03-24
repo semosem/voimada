@@ -5,7 +5,6 @@ import {
   MatCardModule,
   MatInputModule,
   MatIconModule,
-  MatListModule,
   MatTableModule,
   MatPaginatorModule
 } from "@angular/material/";
@@ -17,7 +16,6 @@ import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SearchBarComponent } from "./components/search-bar/search-bar.component";
 import { JobsListComponent } from "./components/jobs-list/jobs-list.component";
-import { ListItemComponent } from "./components/jobs-list/list-item/list-item.component";
 import { TableComponent } from "./components/table/table.component";
 
 @NgModule({
@@ -25,7 +23,6 @@ import { TableComponent } from "./components/table/table.component";
     AppComponent,
     SearchBarComponent,
     JobsListComponent,
-    ListItemComponent,
     TableComponent
   ],
   imports: [
@@ -37,7 +34,6 @@ import { TableComponent } from "./components/table/table.component";
     HttpClientModule,
     MatInputModule,
     MatIconModule,
-    MatListModule,
     MatPaginatorModule,
     MatTableModule,
     CdkTableModule
