@@ -1,3 +1,10 @@
+div {
+  max-height: 51vh;
+  overflow: scroll;
+  height: 10;
+  width: 80%;
+  margin: 7.7rem auto;
+}
 table {
   width: 100%;
   text-align: left;
