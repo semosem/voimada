@@ -2,9 +2,18 @@
   <input
     matInput
     type="search"
-    placeholder="Search for jobs"
+    name="search-input"
+    placeholder="search for..."
     id="input-query"
+    [(ngModel)]="searchQuery"
   />
-  <input type="submit" name="search-jobs" value="Search" id="search-now" />
+  <input
+    type="submit"
+    name="search-jobs"
+    value="Search"
+    id="search-now"
+    (click)="searchJobs(searchQuery)"
+  />
   <!-- <mat-icon>search</mat-icon> -->
+  <app-table [data]="dataSource" *ngIf="showList"> </app-table>
 </form>
