@@ -1,11 +1,10 @@
 <img src="../assets/voimada logo.webp" alt="logo" />
-<div>
+<div class="app" [class.searching]="searching">
   <section>
     <h1>Voi</h1>
     <h1>ma</h1>
     <h1>da</h1>
   </section>
-  <app-search-bar></app-search-bar>
-
-  <app-table> </app-table>
+  <app-search-bar (onSearch)="handleSearch($event)"></app-search-bar>
+  <app-table [data]="dataSource" *ngIf="searching"></app-table>
 </div>

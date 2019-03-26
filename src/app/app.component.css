@@ -1,13 +1,14 @@
-div {
+.app {
   text-align: center;
-  margin: 0;
   height: 40vh;
   background: rgba(35, 72, 83);
+  position: relative;
+  top: 25vh;
+  transition: all 0.25s;
 }
-mat-toolbar {
-  bottom: 0;
+img {
   position: absolute;
-  /* height: 5rem; */
+  z-index: 1;
 }
 h1 {
   display: inline-block;
@@ -22,6 +23,7 @@ h1:nth-child(2) {
 h1:nth-child(3) {
   color: white;
 }
-img {
-  position: absolute;
+
+.searching {
+  top: 0vh;
 }

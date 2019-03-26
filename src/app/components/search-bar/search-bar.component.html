@@ -1,4 +1,4 @@
-<form class="input-form">
+<form class="input-form" name="searchForm">
   <input
     matInput
     type="search"
@@ -15,5 +15,4 @@
     (click)="searchJobs(searchQuery)"
   />
   <!-- <mat-icon>search</mat-icon> -->
-  <app-table [data]="dataSource" *ngIf="showList"> </app-table>
 </form>

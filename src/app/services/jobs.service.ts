@@ -7,16 +7,21 @@ import { environment } from "../../environments/environment";
   providedIn: "root"
 })
 export class JobService {
-  jobUrl = "https://data.usajobs.gov/api/search?";
+  private query: string;
+  private baseUrl: string = "https://data.usajobs.gov/api/search?";
+  private reqURL: string = `${this.baseUrl}Keyword=`;
+  private _HOST: string = environment._HOST;
+  private _USER_AGENT: string = environment.USER_AGENT;
+  private _API_KEY: string = environment.AUTHORIZATION_KEY;
 
-  constructor(private http: HttpClient) {}
+  constructor(private _http: HttpClient) {}
 
-  getJobs(): Observable<any> {
-    return this.http.get(this.jobUrl, {
+  getJobs(q): Observable<any> {
+    return this._http.get(this.reqURL + q, {
       headers: new HttpHeaders({
-        Host: environment.host,
-        "User-Agent": environment.userAgent,
-        "Authorization-Key": environment.authorizationKey
+        Host: this._HOST,
+        "User-Agent": this._USER_AGENT,
+        "Authorization-Key": this._API_KEY
       })
     });
   }

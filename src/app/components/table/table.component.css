@@ -1,9 +1,9 @@
 div {
-  max-height: 51vh;
+  max-height: 41vh;
   overflow: scroll;
-  height: 10;
   width: 80%;
-  margin: 7.7rem auto;
+  margin: 10.7rem auto;
+  transition: all 2s;
 }
 table {
   width: 100%;
