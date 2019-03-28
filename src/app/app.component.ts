@@ -10,6 +10,12 @@ export class AppComponent {
   private query: string;
   public dataSource: Jobs[];
   private searching: boolean = false;
+  private dataFound: boolean = false;
+
+  private imageStyle = {
+    position: "relative"
+  };
+
   constructor(private _jobService: JobService) {}
 
   handleSearch(query) {
@@ -17,8 +23,7 @@ export class AppComponent {
       .getJobs(query)
       .subscribe(
         jobsInfo => this.handlResolve(jobsInfo),
-        err => this.handleReject(err),
-        () => console.log("resting")
+        err => this.handleReject(err)
       );
   }
 
@@ -35,12 +40,12 @@ export class AppComponent {
     }));
     this.dataSource = jobs;
     this.searching = true;
+    this.dataSource.length !== 0
+      ? (this.dataFound = true)
+      : (this.dataFound = false);
   }
 
   handleReject(err): void {
     console.log(err);
   }
-  imageStyle = {
-    position: "relative"
-  };
 }
