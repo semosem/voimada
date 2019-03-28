@@ -29,9 +29,9 @@ h1:nth-child(3) {
 }
 #err {
   position: fixed;
+  left: 0;
   bottom: 20vh;
   width: 100%;
-  left: 0;
   color: red;
   font-size: 2rem;
 }
