@@ -10,6 +10,8 @@
   <app-table [data]="dataSource" *ngIf="dataFound && searching; else: notFound">
   </app-table>
   <ng-template #notFound>
-    <h1 *ngIf="searching">YOUR SEARCH DID NOT MATCH WITH ANY DATA ...</h1>
+    <h1 id="err" *ngIf="searching">
+      YOUR SEARCH DID NOT MATCH WITH ANY DATA ...
+    </h1>
   </ng-template>
 </div>
