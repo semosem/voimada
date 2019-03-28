@@ -27,3 +27,11 @@ h1:nth-child(3) {
 .searching {
   top: 0vh;
 }
+span {
+  position: fixed;
+  bottom: 20vh;
+  width: 100%;
+  left: 0;
+  color: red;
+  font-size: 2rem;
+}
