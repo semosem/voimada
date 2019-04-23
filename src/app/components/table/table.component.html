@@ -5,7 +5,11 @@
     <!-- Position Column -->
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef>Job title</th>
-      <td mat-cell *matCellDef="let element">{{ element.PositionTitle }}</td>
+      <td mat-cell *matCellDef="let element">
+        <a href="element.PositionURI" target="_blank">
+          {{ element.PositionTitle }}
+        </a>
+      </td>
     </ng-container>
 
     <!-- Organisation name -->
